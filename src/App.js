@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {useState} from 'react'
+
+import Tweets from './Tweets';
+
+
 
 function App() {
+  const [counter, setCounter] = useState(0);
+
+  const name = 'White';
+  const age = '26';
+
+  const handleBackground = (e) => {
+    e.preventDefault();
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{backgroundColor: 'red'}}>
+    <div className="App" >
+        <p>{counter}</p>
+        <button onClick={() => {setCounter(counter +100)}}>Increase </button>
+        <button onClick={() => {setCounter(counter -100)}}>Decrease </button>
+
+        <Tweets me={name} age = {age} counter={counter} />
+        <form >
+          <input type="text" onChange={this.handleBackground}/>
+          <button>Change background</button>
+        </form>
+   
     </div>
+    </div>
+  
   );
 }
 
